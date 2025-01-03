@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<head>
+    <table align="center">
+        <tr>
+            <td><img src="./assets/john_xina.webp" alt="John Xina" width="125" height="175"></td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td><h1><i>Teorema chino del resto club oficial de fans</i></h1></td>
+        </tr>
+    </table>
+    <title>Teorema chino del resto</title>
+    <script src="./sauce.js"></script>
+</head>
+<body>
+    <div align="center">
+        <h2>Teorema de división entera</h2>
+        <form id="divisionForm">
+          <input type="number" id="num1" placeholder="a" required onchange="teoDivEntera()">
+          <input type="number" id="num2" placeholder="b" required onchange="teoDivEntera()">
+          <button type="button" onclick="clearDivisionEntera()">Limpiar</button>
+        </form>
+        <p id="q">q = </p>
+        <p id="r">r = </p>
+      </div>
+      
+      <div align="center">
+        <h2>Máximo Común Divisor</h2>
+        <form id="gcdForm">
+          <input type="number" id="gcdNum1" placeholder="a" required onchange="calculateGCD()">
+          <input type="number" id="gcdNum2" placeholder="b" required onchange="calculateGCD()">
+          <button type="button" onclick="clearGCD()">Limpiar</button>
+        </form>
+        <p id="mcd">mcd = </p>
+      </div>
+      
+      <div align="center">
+        <h2>Máximo Común Divisor y Coeficientes de Bézout</h2>
+        <form id="bezoutForm">
+          <input type="number" id="bezoutNum1" placeholder="a" required onchange="calculateGCDAndBezout()">
+          <input type="number" id="bezoutNum2" placeholder="b" required onchange="calculateGCDAndBezout()">
+          <button type="button" onclick="clearBezout()">Limpiar</button>
+        </form>
+        <p id="bezoutMcd">mcd = </p>
+        <p id="bezoutCoeffs">Coeficientes de Bézout: x<sub>0</sub> = , y<sub>0</sub> = </p>
+      </div>
+
+      <div align="center">
+        <h2>Teorema Chino del Resto (2 congruencias)</h2>
+        <form id="crtForm">
+            <div id="crtMathDisplay" style="font-size: 1.2em; margin: 20px;">
+                \[\begin{cases} 
+                x \equiv a \pmod{m_1} \\
+                x \equiv b \pmod{m_2}
+                \end{cases}\]
+            </div>
+            <input type="number" id="crtA" placeholder="a" required onchange="updateCRTDisplay()">
+            <input type="number" id="crtM1" placeholder="m₁" required onchange="updateCRTDisplay()">
+            <input type="number" id="crtB" placeholder="b" required onchange="updateCRTDisplay()">
+            <input type="number" id="crtM2" placeholder="m₂" required onchange="updateCRTDisplay()">
+            <button type="button" onclick="calculateCRT()">Calcular</button>
+            <button type="button" onclick="clearCRT()">Limpiar</button>
+        </form>
+        <p id="crtResult"></p>
+    </div>
+
+      <div align="center">
+        <h2>Inverso Modular</h2>
+        <form id="modInvForm">
+            <div id="invMathDisplay" style="font-size: 1.2em; margin: 20px;">
+                \[ax \equiv 1 \pmod{n}\]
+            </div>
+            <input type="number" id="invBase" placeholder="a" required onchange="updateInvMathDisplay()">
+            <input type="number" id="invModulus" placeholder="n" required onchange="updateInvMathDisplay()">
+            <button type="button" onclick="calculateModInv()">Calcular</button>
+            <button type="button" onclick="clearModInv()">Limpiar</button>
+        </form>
+        <p id="modInvResult"></p>
+    </div>
+
+      <div align="center">
+        <h2>Exponenciación Rápida</h2>
+        <form id="modExpForm">
+          <div id="mathDisplay" style="font-size: 1.2em; margin: 20px;">
+            \[a^b \bmod n\]
+          </div>
+          <input type="number" id="base" placeholder="a" required onchange="updateMathDisplay()">
+          <input type="number" id="exponent" placeholder="b" required onchange="updateMathDisplay()">
+          <input type="number" id="modulus" placeholder="n" required onchange="updateMathDisplay()">
+          <button type="button" onclick="calculateModExp()">Calcular</button>
+          <button type="button" onclick="clearModExp()">Limpiar</button>
+        </form>
+        <p id="modExpResult"></p>
+      </div>
+      
+      <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+      </script>
+      
+      <div align="center">
+        <h2>Ver rango de números primos</h2>
+        <form id="primeFromFileForm">
+          <input type="number" id="numPrimes" oninput="displayPrimesFromFile()" placeholder="Número de primos" required>
+          <button type="button" onclick="clearPrimeFromFile()">Limpiar</button>
+        </form>
+        <p id="primesFromFileOutput"></p>
+      </div>
+      
+      <div align="center">
+        <h2>Teorema fundamental de la aritmética</h2>
+        <form id="primeFactorizationForm">
+          <input type="number" id="numberToFactorize" placeholder="Número" required onchange="primeFactorization()">
+          <button type="button" onclick="clearPrimeFactorization()">Limpiar</button>
+        </form>
+        <p id="primeFactorizationOutput">Descomposición de <span id="factorizedNumber"></span> en factores primos: </p>
+      </div>
+
+      <div align="center">
+        <h2>Función φ de Euler</h2>
+        <form id="eulerForm">
+          <input type="number" id="eulerNumber" min="1" placeholder="n" required onchange="calculateEulerPhi()">
+          <button type="button" onclick="clearEulerPhi()">Limpiar</button>
+        </form>
+        <p>φ(<span id="inputNumber"></span>) = <span id="eulerOutput"></span></p>
+      </div>
+
+      <div align="center">
+        <h2>Tabla de órdenes del grupo aditivo Zn</h2>
+        <form id="znOrderForm">
+          <input type="number" id="znNumber" min="1" placeholder="n" required onchange="generateZnTable()">
+          <button type="button" onclick="clearZnTable()">Limpiar</button>
+        </form>
+        <div id="znTableOutput"></div>
+      </div>
+
+      <div align="center">
+        <h2>Tabla de órdenes del grupo U(n)</h2>
+        <form id="unOrderForm">
+          <input type="number" id="unNumber" min="1" placeholder="n" required onchange="generateUnTable()">
+          <button type="button" onclick="clearUnTable()">Limpiar</button>
+        </form>
+        <div id="unTableOutput"></div>
+      </div>
+      
+      <div align="center">
+        <h2>Tabla de elementos del grupo diedral D<sub>n</sub></h2>
+        <form id="dnOrderForm">
+          <input type="number" id="dnNumber" min="3" placeholder="n" required onchange="generateDnTable()">
+          <button type="button" onclick="clearDnTable()">Limpiar</button>
+        </form>
+        <div id="dnTableOutput"></div>
+      </div>
+</body>
